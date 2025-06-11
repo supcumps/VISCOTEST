@@ -12,52 +12,129 @@ Begin MobileScreen StartScreen
    TabBarVisible   =   True
    TabIcon         =   0
    TintColor       =   &c000000
-   Title           =   "Start Screen"
+   Title           =   "TEGRotem application"
    Top             =   0
-   Begin MobileButton ButtonTEG
+   Begin MobileSwitch TestSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ButtonTEG, 1, <Parent>, 1, False, +1.00, 4, 1, 114, , True
-      AutoLayout      =   ButtonTEG, 7, , 0, False, +1.00, 4, 1, 100, , True
-      AutoLayout      =   ButtonTEG, 3, <Parent>, 3, False, +1.00, 4, 1, 142, , True
-      AutoLayout      =   ButtonTEG, 8, , 0, False, +1.00, 4, 1, 30, , True
-      Caption         =   "TEG"
-      CaptionColor    =   &c007AFF00
+      AutoLayout      =   TestSwitch, 8, , 0, True, +1.00, 4, 1, 31, , True
+      AutoLayout      =   TestSwitch, 1, SignificantBleedingLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   TestSwitch, 10, SignificantBleedingLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   TestSwitch, 7, , 0, True, +1.00, 4, 1, 51, , True
       ControlCount    =   0
       Enabled         =   True
-      Height          =   30
-      Left            =   114
+      Height          =   31
+      Left            =   293
       LockedInPosition=   False
-      Scope           =   0
-      TextFont        =   ""
-      TextSize        =   0
+      Scope           =   2
       TintColor       =   &c000000
-      Top             =   142
+      Top             =   309
+      Value           =   False
       Visible         =   True
-      Width           =   100
+      Width           =   51
       _ClosingFired   =   False
    End
-   Begin MobileButton ButtonROTEM
+   Begin MobileLabel SignificantBleedingLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ButtonROTEM, 1, ButtonTEG, 1, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   ButtonROTEM, 7, , 0, False, +1.00, 4, 1, 100, , True
-      AutoLayout      =   ButtonROTEM, 3, <Parent>, 3, False, +1.00, 4, 1, 204, , True
-      AutoLayout      =   ButtonROTEM, 8, , 0, False, +1.00, 4, 1, 30, , True
-      Caption         =   "Rotem"
-      CaptionColor    =   &c007AFF00
+      Alignment       =   0
+      AutoLayout      =   SignificantBleedingLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   SignificantBleedingLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   SignificantBleedingLabel, 3, image, 4, False, +1.00, 4, 1, 50, , True
+      AutoLayout      =   SignificantBleedingLabel, 7, , 0, False, +1.00, 4, 1, 265, , True
       ControlCount    =   0
       Enabled         =   True
       Height          =   30
-      Left            =   114
+      Left            =   20
+      LineBreakMode   =   0
       LockedInPosition=   False
-      Scope           =   0
-      TextFont        =   ""
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "Is there a risk of significant bleeding?"
+      TextColor       =   &c000000
+      TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   204
+      Top             =   310
       Visible         =   True
-      Width           =   100
+      Width           =   265
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel ChooseTestLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   0
+      AutoLayout      =   ChooseTestLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   ChooseTestLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   ChooseTestLabel, 3, SignificantBleedingLabel, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   ChooseTestLabel, 7, , 0, False, +1.00, 4, 1, 104, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "Select testing"
+      TextColor       =   &c000000
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   360
+      Visible         =   True
+      Width           =   104
+      _ClosingFired   =   False
+   End
+   Begin MobileSegmentedButton TestButton
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   TestButton, 8, , 0, True, +1.00, 4, 1, 29, , True
+      AutoLayout      =   TestButton, 1, ChooseTestLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   TestButton, 10, ChooseTestLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   TestButton, 7, , 0, False, +1.00, 4, 1, 200, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   29
+      LastSegmentIndex=   0
+      Left            =   132
+      LockedInPosition=   False
+      Scope           =   2
+      SegmentCount    =   0
+      Segments        =   "Rotem\n\nFalse\rTEG\n\nFalse"
+      SelectedSegmentIndex=   0
+      TintColor       =   &c000000
+      Top             =   360
+      Visible         =   True
+      Width           =   200
+      _ClosingFired   =   False
+   End
+   Begin MobileImageViewer image
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   image, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   image, 8, , 0, False, +1.00, 4, 1, 160, , True
+      AutoLayout      =   image, 3, <Parent>, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   image, 7, , 0, False, +1.00, 4, 1, 160, , True
+      ControlCount    =   0
+      DisplayMode     =   0
+      Enabled         =   True
+      Height          =   160
+      Image           =   1306169343
+      Left            =   107
+      LockedInPosition=   False
+      Scope           =   2
+      TintColor       =   &c000000
+      Top             =   100
+      URL             =   ""
+      Visible         =   True
+      Width           =   160
       _ClosingFired   =   False
    End
 End
@@ -67,27 +144,48 @@ End
 	#tag Event
 		Sub Opening()
 		  // Setup buttons and interface if needed
+		  Me.SetBackgroundColorXC(&cFFFDEE)
 		End Sub
 	#tag EndEvent
 
 
 #tag EndWindowCode
 
-#tag Events ButtonTEG
+#tag Events TestSwitch
 	#tag Event
-		Sub Pressed()
-		  Var TEGSreen As  New TEGInputScreen
-		  
-		  TEGSreen.Show()
-		  
+		Sub ValueChanged()
+		  If TestSwitch.Value Then   // there is a risk of significant bleeding
+		    'MessageBox("ON")
+		    
+		    Var  Message As String = "High risk Of Fibrinolysis?" + EndOfLine +  _
+		    " ( E.g. trauma, obstetric, major orthopaedic Case " + EndOfLine +  _
+		    "Consider Tranexamic Acid 1g IV now!"   + EndOfLine   
+		    MessageBox(Message)
+		    
+		    TestSwitch.Value  = FALSE
+		    'd.Explanation = "Administration before bleeding helps limit blood loss"
+		    
+		  Else
+		    'MessageBox("OFF")
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events ButtonROTEM
+#tag Events TestButton
 	#tag Event
-		Sub Pressed()
-		  Var RotemScreen As  New ROTEMInputScreen
-		  RotemScreen.Show
+		Sub Pressed(segmentedIndex As Integer)
+		  
+		  If TestButton.SelectedSegment.Caption = "Rotem"  Then // Rotem
+		    'MessageBox("ROTEM")
+		    Var RotemScreen As  New ROTEMInputScreen
+		    RotemScreen.Show
+		    
+		  ElseIf  TestButton.SelectedSegment.Caption = "TEG" Then // TEG
+		    'MessageBox("TEG")
+		    Var TEGSreen As  New TEGInputScreen
+		    TEGSreen.Show()
+		    
+		  End  If
 		  
 		End Sub
 	#tag EndEvent

@@ -34,6 +34,7 @@ MobileScreen=AlgorithmStepScreen;AlgorithmStepScreen.xojo_code;&h0000000019FC57F
 Class=TEGResult;TEGResult.xojo_code;&h00000000679587FF;&h0000000000000000;false
 Class=RotemResult;RotemResult.xojo_code;&h00000000731527FF;&h0000000000000000;false
 iOSContainerControl=TableCustomCell;TableCustomCell.xojo_code;&h00000000386AFFFF;&h0000000000000000;false
+MultiImage=BLOOD;BLOOD.xojo_image;&h000000004DDA8FFF;&h0000000000000000;false
 DefaultLayout=iPhoneLayout
 DefaultTabletLayout=iPadLayout
 MajorVersion=1

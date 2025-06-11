@@ -12,7 +12,7 @@ Begin MobileScreen ROTEMInputScreen
    TabBarVisible   =   True
    TabIcon         =   0
    TintColor       =   &c000000
-   Title           =   "Rotem Input"
+   Title           =   "Rotem"
    Top             =   0
    Begin MobileTextField FIBTEM_A5Field
       AccessibilityHint=   ""
@@ -21,17 +21,17 @@ Begin MobileScreen ROTEMInputScreen
       AllowAutoCorrection=   False
       AllowSpellChecking=   False
       AutoCapitalizationType=   0
-      AutoLayout      =   FIBTEM_A5Field, 3, <Parent>, 3, False, +1.00, 4, 1, 269, , True
-      AutoLayout      =   FIBTEM_A5Field, 1, <Parent>, 1, False, +1.00, 4, 1, 129, , True
-      AutoLayout      =   FIBTEM_A5Field, 7, , 0, False, +1.00, 4, 1, 100, , True
       AutoLayout      =   FIBTEM_A5Field, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   FIBTEM_A5Field, 1, Fibtem_A5Label, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   FIBTEM_A5Field, 10, Fibtem_A5Label, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   FIBTEM_A5Field, 7, , 0, False, +1.00, 4, 1, 100, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
       Height          =   34
       Hint            =   "FIBTEM A5"
-      InputType       =   0
-      Left            =   129
+      InputType       =   4
+      Left            =   128
       LockedInPosition=   False
       MaximumCharactersAllowed=   0
       Password        =   False
@@ -46,7 +46,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   269
+      Top             =   148
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -58,21 +58,19 @@ Begin MobileScreen ROTEMInputScreen
       AllowAutoCorrection=   False
       AllowSpellChecking=   False
       AutoCapitalizationType=   0
-      AutoLayout      =   EXTEM_A5Field, 1, EXTEM_CTField, 1, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   EXTEM_A5Field, 7, , 0, False, +1.00, 4, 1, 100, , True
-      AutoLayout      =   EXTEM_A5Field, 4, FIBTEM_A5Field, 3, False, +1.00, 4, 1, -*kStdControlGapV, , True
       AutoLayout      =   EXTEM_A5Field, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   EXTEM_A5Field, 1, Extem_A5Label, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   EXTEM_A5Field, 10, Extem_A5Label, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   EXTEM_A5Field, 7, , 0, False, +1.00, 4, 1, 100, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
       Height          =   34
       Hint            =   "EXTEM A5"
-      InputType       =   0
-      Left            =   137
+      InputType       =   4
+      Left            =   128
       LockedInPosition=   False
       MaximumCharactersAllowed=   0
-      PanelIndex      =   -1
-      Parent          =   ""
       Password        =   False
       ReadOnly        =   False
       ReturnCaption   =   0
@@ -85,7 +83,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   227
+      Top             =   98
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -97,21 +95,19 @@ Begin MobileScreen ROTEMInputScreen
       AllowAutoCorrection=   False
       AllowSpellChecking=   False
       AutoCapitalizationType=   0
-      AutoLayout      =   FIBTEM_MLField, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   FIBTEM_MLField, 7, , 0, False, +1.00, 4, 1, 100, , True
       AutoLayout      =   FIBTEM_MLField, 8, , 0, False, +1.00, 4, 1, 34, , True
-      AutoLayout      =   FIBTEM_MLField, 4, , 0, False, +1.00, 4, 1, 429, , True
+      AutoLayout      =   FIBTEM_MLField, 1, FIBTEM_MLLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   FIBTEM_MLField, 10, FIBTEM_MLLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   FIBTEM_MLField, 7, , 0, False, +1.00, 4, 1, 100, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
       Height          =   34
       Hint            =   "FIBTEM ML"
-      InputType       =   0
-      Left            =   137
+      InputType       =   4
+      Left            =   128
       LockedInPosition=   False
       MaximumCharactersAllowed=   0
-      PanelIndex      =   -1
-      Parent          =   ""
       Password        =   False
       ReadOnly        =   False
       ReturnCaption   =   0
@@ -124,7 +120,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   395
+      Top             =   248
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -136,21 +132,19 @@ Begin MobileScreen ROTEMInputScreen
       AllowAutoCorrection=   False
       AllowSpellChecking=   False
       AutoCapitalizationType=   0
-      AutoLayout      =   EXTEM_CTField, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   EXTEM_CTField, 7, , 0, False, +1.00, 4, 1, 100, , True
-      AutoLayout      =   EXTEM_CTField, 3, FIBTEM_A5Field, 4, False, +1.00, 4, 1, *kStdControlGapV, , True
       AutoLayout      =   EXTEM_CTField, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   EXTEM_CTField, 1, EXTEM_CTLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   EXTEM_CTField, 10, EXTEM_CTLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   EXTEM_CTField, 7, , 0, False, +1.00, 4, 1, 100, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
       Height          =   34
       Hint            =   "EXTEM CT"
-      InputType       =   0
-      Left            =   137
+      InputType       =   4
+      Left            =   128
       LockedInPosition=   False
       MaximumCharactersAllowed=   0
-      PanelIndex      =   -1
-      Parent          =   ""
       Password        =   False
       ReadOnly        =   False
       ReturnCaption   =   0
@@ -163,7 +157,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   311
+      Top             =   198
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -171,16 +165,16 @@ Begin MobileScreen ROTEMInputScreen
    Begin MobileButton ButtonContinue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ButtonContinue, 3, <Parent>, 3, False, +1.00, 4, 1, 512, , True
-      AutoLayout      =   ButtonContinue, 1, <Parent>, 1, False, +1.00, 4, 1, 195, , True
-      AutoLayout      =   ButtonContinue, 7, , 0, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   ButtonContinue, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
       AutoLayout      =   ButtonContinue, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   ButtonContinue, 3, <Parent>, 3, False, +1.00, 4, 1, 512, , True
+      AutoLayout      =   ButtonContinue, 7, , 0, False, +1.00, 4, 1, 100, , True
       Caption         =   "Continue"
       CaptionColor    =   &c007AFF00
       ControlCount    =   0
       Enabled         =   True
       Height          =   30
-      Left            =   195
+      Left            =   137
       LockedInPosition=   False
       Scope           =   0
       TextFont        =   ""
@@ -191,10 +185,133 @@ Begin MobileScreen ROTEMInputScreen
       Width           =   100
       _ClosingFired   =   False
    End
+   Begin MobileLabel Extem_A5Label
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   Extem_A5Label, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   Extem_A5Label, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   Extem_A5Label, 3, <Parent>, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   Extem_A5Label, 7, , 0, False, +1.00, 4, 1, 100, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "EXTEM A5"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   100
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel Fibtem_A5Label
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   Fibtem_A5Label, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   Fibtem_A5Label, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   Fibtem_A5Label, 3, Extem_A5Label, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   Fibtem_A5Label, 7, , 0, False, +1.00, 4, 1, 100, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "FIBTEM A5"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   150
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel EXTEM_CTLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   EXTEM_CTLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   EXTEM_CTLabel, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   EXTEM_CTLabel, 3, Fibtem_A5Label, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   EXTEM_CTLabel, 7, , 0, False, +1.00, 4, 1, 100, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "EXTEM CT"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   200
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel FIBTEM_MLLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   FIBTEM_MLLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   FIBTEM_MLLabel, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   FIBTEM_MLLabel, 3, EXTEM_CTLabel, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   FIBTEM_MLLabel, 7, , 0, False, +1.00, 4, 1, 100, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "FIBTEM ML"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   250
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
 End
 #tag EndMobileScreen
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  Me.SetBackgroundColorXC(&cFFFDEE)
+		End Sub
+	#tag EndEvent
+
+
 #tag EndWindowCode
 
 #tag Events ButtonContinue

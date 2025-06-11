@@ -119,6 +119,9 @@ End
 		    If ResultTable.SectionCount = 0 Then
 		      ResultTable.AddSection("")
 		    End If
+		    
+		    
+		    
 		    'ResultTable.DataSource = ROTEMData
 		    If rotemdata.EXTEM_A5 < 35 Then 
 		      

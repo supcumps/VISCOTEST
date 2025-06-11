@@ -1,6 +1,6 @@
 #tag MobileScreen
 Begin MobileScreen TEGInputScreen
-   BackButtonCaption=   ""
+   BackButtonCaption=   "Main Screen"
    Compatibility   =   ""
    ControlCount    =   0
    Device = 7
@@ -12,7 +12,7 @@ Begin MobileScreen TEGInputScreen
    TabBarVisible   =   True
    TabIcon         =   0
    TintColor       =   &c000000
-   Title           =   "Untitled"
+   Title           =   "TEG"
    Top             =   0
    Begin MobileTextField CKH_RField
       AccessibilityHint=   ""
@@ -21,17 +21,17 @@ Begin MobileScreen TEGInputScreen
       AllowAutoCorrection=   False
       AllowSpellChecking=   False
       AutoCapitalizationType=   0
-      AutoLayout      =   CKH_RField, 1, <Parent>, 1, False, +1.00, 4, 1, 149, , True
-      AutoLayout      =   CKH_RField, 7, , 0, False, +1.00, 4, 1, 111, , True
-      AutoLayout      =   CKH_RField, 3, <Parent>, 3, False, +1.00, 4, 1, 170, , True
       AutoLayout      =   CKH_RField, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   CKH_RField, 1, CKH_RLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   CKH_RField, 10, CKH_RLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   CKH_RField, 7, , 0, False, +1.00, 4, 1, 111, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
       Height          =   34
       Hint            =   "Enter CKH-R"
-      InputType       =   0
-      Left            =   149
+      InputType       =   4
+      Left            =   108
       LockedInPosition=   False
       MaximumCharactersAllowed=   0
       Password        =   False
@@ -46,7 +46,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   170
+      Top             =   163
       Visible         =   True
       Width           =   111
       _ClosingFired   =   False
@@ -58,17 +58,16 @@ Begin MobileScreen TEGInputScreen
       AllowAutoCorrection=   False
       AllowSpellChecking=   False
       AutoCapitalizationType=   0
-      AutoLayout      =   LY30Field, 1, CKH_RField, 1, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   LY30Field, 2, CKH_RField, 2, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   LY30Field, 3, <Parent>, 3, False, +1.00, 4, 1, 235, , True
       AutoLayout      =   LY30Field, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   LY30Field, 1, LY30Label, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   LY30Field, 10, LY30Label, 10, False, +1.00, 4, 1, 0, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
       Height          =   34
       Hint            =   "Enter LY30"
-      InputType       =   0
-      Left            =   149
+      InputType       =   4
+      Left            =   108
       LockedInPosition=   False
       MaximumCharactersAllowed=   0
       Password        =   False
@@ -83,7 +82,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   235
+      Top             =   213
       Visible         =   True
       Width           =   111
       _ClosingFired   =   False
@@ -91,16 +90,16 @@ Begin MobileScreen TEGInputScreen
    Begin MobileButton ButtonContinue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ButtonContinue, 1, <Parent>, 1, False, +1.00, 4, 1, 149, , True
-      AutoLayout      =   ButtonContinue, 7, , 0, False, +1.00, 4, 1, 100, , True
-      AutoLayout      =   ButtonContinue, 3, <Parent>, 3, False, +1.00, 4, 1, 388, , True
+      AutoLayout      =   ButtonContinue, 9, <Parent>, 9, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   ButtonContinue, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   ButtonContinue, 3, <Parent>, 3, False, +1.00, 4, 1, 388, , True
+      AutoLayout      =   ButtonContinue, 7, , 0, False, +1.00, 4, 1, 100, , True
       Caption         =   "Continue"
       CaptionColor    =   &c007AFF00
       ControlCount    =   0
       Enabled         =   True
       Height          =   30
-      Left            =   149
+      Left            =   157
       LockedInPosition=   False
       Scope           =   0
       TextFont        =   ""
@@ -111,10 +110,75 @@ Begin MobileScreen TEGInputScreen
       Width           =   100
       _ClosingFired   =   False
    End
+   Begin MobileLabel CKH_RLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   CKH_RLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   CKH_RLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   CKH_RLabel, 3, TopLayoutGuide, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   CKH_RLabel, 7, , 0, False, +1.00, 4, 1, 80, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "CKH-R"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   165
+      Visible         =   True
+      Width           =   80
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel LY30Label
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   LY30Label, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   LY30Label, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   LY30Label, 3, CKH_RLabel, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   LY30Label, 7, , 0, False, +1.00, 4, 1, 80, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "LY30"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   215
+      Visible         =   True
+      Width           =   80
+      _ClosingFired   =   False
+   End
 End
 #tag EndMobileScreen
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  Me.SetBackgroundColorXC(&cFFFDEE)
+		End Sub
+	#tag EndEvent
+
+
 #tag EndWindowCode
 
 #tag Events ButtonContinue
