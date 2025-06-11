@@ -27,7 +27,7 @@ Begin MobileScreen AlgorithmStepScreen
       EditingEnabled  =   False
       EditingEnabled  =   False
       Enabled         =   True
-      EstimatedRowHeight=   -1
+      EstimatedRowHeight=   0
       Format          =   0
       Height          =   549
       Left            =   35
@@ -123,12 +123,17 @@ End
 		    
 		    
 		    'ResultTable.DataSource = ROTEMData
-		    If rotemdata.EXTEM_A5 < 35 Then 
-		      
-		      AddResult("EXTEM < 35 → Hyperfibrinolysis")
-		      AddResult("FIBTEM < 8 → Hypofibrinogenemia")
+		    If rotemdata.EXTEM_A5 < 35 Then AddResult("EXTEM < 35 → Hyperfibrinolysis")
+		    If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 8 → Hypofibrinogenemia")
+		    If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
+		       AddResult("Poor Platelet Contribution")
 		    End If
 		    
+		    If ROTEMData.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_CT > 85 Then
+		      AddResult("Low Coagulation Factors or Oral anticoagulants")
+		    End If
+		    
+		    If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult("FIBTEM_ML  >= 10→ Hyperfibrinolysis")
 		  Case "TEG"
 		    'MessageBox("TEG selected")
 		  End Select
@@ -168,11 +173,22 @@ End
 #tag Events ResultTable
 	#tag Event
 		Sub SelectionChanged(section As Integer, row As Integer)
-		  
+		  Var value As String
 		  If row >= 0 And row <= UBound(ResultData) Then
-		    Var value As String = ResultData(row)
+		    value = ResultData(row)
 		    MessageBox("You tapped: " + value)
 		  End If
+		  
+		  'If value =  "EXTEM < 35 → Hyperfibrinolysis" Then
+		  'MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
+		  'End If
+		  
+		  Select Case value
+		  Case  "EXTEM < 35 → Hyperfibrinolysis" 
+		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
+		  Case "FIBTEM < 8 → Hypofibrinogenemia"
+		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
+		  End Select
 		End Sub
 	#tag EndEvent
 #tag EndEvents

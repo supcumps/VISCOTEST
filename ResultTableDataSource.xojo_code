@@ -26,6 +26,7 @@ Implements iOSMobileTableDataSource
 		  
 		  
 		  Var cell As MobileTableCellData = table.CreateCustomCell(GetTypeInfo(TableCustomCell))
+		  
 		  Var customCell As TableCustomCell = TableCustomCell(cell.Control)
 		  customCell.LoadData(mResults(row))
 		  Return cell

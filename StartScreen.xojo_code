@@ -92,29 +92,6 @@ Begin MobileScreen StartScreen
       Width           =   104
       _ClosingFired   =   False
    End
-   Begin MobileSegmentedButton TestButton
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   TestButton, 8, , 0, True, +1.00, 4, 1, 29, , True
-      AutoLayout      =   TestButton, 1, ChooseTestLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
-      AutoLayout      =   TestButton, 10, ChooseTestLabel, 10, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   TestButton, 7, , 0, False, +1.00, 4, 1, 200, , True
-      ControlCount    =   0
-      Enabled         =   True
-      Height          =   29
-      LastSegmentIndex=   0
-      Left            =   132
-      LockedInPosition=   False
-      Scope           =   2
-      SegmentCount    =   0
-      Segments        =   "Rotem\n\nFalse\rTEG\n\nFalse"
-      SelectedSegmentIndex=   0
-      TintColor       =   &c000000
-      Top             =   360
-      Visible         =   True
-      Width           =   200
-      _ClosingFired   =   False
-   End
    Begin MobileImageViewer image
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
@@ -135,6 +112,52 @@ Begin MobileScreen StartScreen
       URL             =   ""
       Visible         =   True
       Width           =   160
+      _ClosingFired   =   False
+   End
+   Begin MobileButton ROTEMButton
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   ROTEMButton, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   ROTEMButton, 1, ChooseTestLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   ROTEMButton, 10, ChooseTestLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   ROTEMButton, 7, , 0, False, +1.00, 4, 1, 100, , True
+      Caption         =   "ROTEM"
+      CaptionColor    =   &c007AFF00
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   132
+      LockedInPosition=   False
+      Scope           =   2
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   360
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileButton TEGButton
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   TEGButton, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   TEGButton, 1, ROTEMButton, 2, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   TEGButton, 10, ROTEMButton, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   TEGButton, 7, , 0, False, +1.00, 4, 1, 100, , True
+      Caption         =   "TEG"
+      CaptionColor    =   &c007AFF00
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   232
+      LockedInPosition=   False
+      Scope           =   2
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   360
+      Visible         =   True
+      Width           =   100
       _ClosingFired   =   False
    End
 End
@@ -171,21 +194,25 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events TestButton
+#tag Events ROTEMButton
 	#tag Event
-		Sub Pressed(segmentedIndex As Integer)
+		Sub Pressed()
 		  
-		  If TestButton.SelectedSegment.Caption = "Rotem"  Then // Rotem
-		    'MessageBox("ROTEM")
-		    Var RotemScreen As  New ROTEMInputScreen
-		    RotemScreen.Show
-		    
-		  ElseIf  TestButton.SelectedSegment.Caption = "TEG" Then // TEG
-		    'MessageBox("TEG")
-		    Var TEGSreen As  New TEGInputScreen
-		    TEGSreen.Show()
-		    
-		  End  If
+		  
+		  Var RotemScreen As  New ROTEMInputScreen
+		  RotemScreen.Show
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events TEGButton
+	#tag Event
+		Sub Pressed()
+		  
+		  Var TEGSreen As  New TEGInputScreen
+		  TEGSreen.Show()
+		  
 		  
 		End Sub
 	#tag EndEvent

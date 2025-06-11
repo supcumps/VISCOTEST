@@ -18,13 +18,13 @@ Begin MobileTableCustomCell TableCustomCell
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       Alignment       =   0
-      AutoLayout      =   TextLabel, 8, , 0, False, +1.00, 4, 1, 32, , True
+      AutoLayout      =   TextLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   TextLabel, 1, IconViewer, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
       AutoLayout      =   TextLabel, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
       AutoLayout      =   TextLabel, 10, <Parent>, 10, False, +1.00, 4, 1, 0, , True
       ControlCount    =   0
       Enabled         =   True
-      Height          =   32
+      Height          =   30
       Left            =   60
       LineBreakMode   =   0
       LockedInPosition=   False
@@ -38,7 +38,7 @@ Begin MobileTableCustomCell TableCustomCell
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   29
+      Top             =   30
       Visible         =   True
       Width           =   440
       _ClosingFired   =   False
@@ -79,6 +79,9 @@ End
 	#tag Method, Flags = &h0
 		Sub LoadData(result As RotemResult)
 		  'Sub LoadData(result As RotemResult)
+		  
+		  
+		  
 		  // Format the text to display multiple properties
 		  TextLabel.Text = "EXTEM A5: " + result.EXTEM_A5.ToString + ", CT: " + result.EXTEM_CT.ToString + _
 		  ", FIBTEM A5: " + result.FIBTEM_A5.ToString + ", ML: " + result.FIBTEM_ML.ToString
@@ -87,9 +90,12 @@ End
 		  If result.IsNormal Then
 		    IconViewer.Text= "✅" // Replace with your normal icon
 		  Else
-		    IconViewer.Text = "⏳" // Replace with your abnormal icon
+		    IconViewer.Text = "⚠️" // Replace with your abnormal icon
 		  End If
 		  'End Sub
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
