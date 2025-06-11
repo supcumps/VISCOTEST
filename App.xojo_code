@@ -3,7 +3,7 @@ Protected Class App
 Inherits MobileApplication
 	#tag Event
 		Sub Opening()
-		  
+		  'Me.SetBackgroundColorXC(&cFFFDEE)
 		End Sub
 	#tag EndEvent
 

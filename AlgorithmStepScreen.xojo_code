@@ -14,25 +14,32 @@ Begin MobileScreen AlgorithmStepScreen
    TintColor       =   &c000000
    Title           =   "Algorithm Step Screen"
    Top             =   0
-   Begin MobileScrollableArea StepScrollArea
+   Begin iOSMobileTable ResultTable
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   StepScrollArea, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
-      AutoLayout      =   StepScrollArea, 7, , 0, False, +1.00, 4, 1, 320, , True
-      AutoLayout      =   StepScrollArea, 3, , 0, False, +1.00, 4, 1, 150, , True
-      AutoLayout      =   StepScrollArea, 8, , 0, False, +1.00, 4, 1, 320, , True
+      AllowRefresh    =   False
+      AllowSearch     =   False
+      AutoLayout      =   ResultTable, 7, , 0, False, +1.00, 4, 1, 320, , True
+      AutoLayout      =   ResultTable, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   ResultTable, 3, <Parent>, 3, False, +1.00, 4, 1, 159, , True
+      AutoLayout      =   ResultTable, 8, , 0, False, +1.00, 4, 1, 549, , True
       ControlCount    =   0
+      EditingEnabled  =   False
+      EditingEnabled  =   False
       Enabled         =   True
-      Height          =   320
+      EstimatedRowHeight=   -1
+      Format          =   0
+      Height          =   549
       Left            =   35
       LockedInPosition=   False
       Scope           =   0
-      ScrollContent   =   0
+      SectionCount    =   0
       TintColor       =   &c000000
-      Top             =   150
+      Top             =   159
       Visible         =   True
       Width           =   320
       _ClosingFired   =   False
+      _OpeningCompleted=   False
    End
 End
 #tag EndMobileScreen
@@ -41,45 +48,46 @@ End
 	#tag Event
 		Sub Opening()
 		  
-		  ' Get reference to container control
-		  Var cc As  New StepRowContainer
 		  
-		  StepScrollArea.Container = cc
-		  
-		  ' Now you can call methods on it
-		  
-		  If Mode = "TEG" Then
-		    AddStep("⏳", "Check CKH-R")
-		    AddStep("⏳", "Check LY30")
-		    AddStep("✅", "Normal values — continue observation.")
-		    AddStep("⏳", "If bleeding continues after 10 minutes, restart the algorithm.")
-		  ElseIf Mode = "Rotem" then
-		    AddStep("⏳", "Check EXTEM A5")
-		    AddStep("⏳", "Check FIBTEM A5")
-		    AddStep("⏳", "Check EXTEM CT")
-		    AddStep("⏳", "Check FIBTEM ML")
-		    AddStep("✅", "Normal values — continue observation.")
-		    AddStep("⏳", "If bleeding continues after 10 minutes, restart the algorithm.")
-		  End If
+		  'If Mode = "TEG" Then
+		  'AddStep("⏳", "Check CKH-R" + CRLF)
+		  'AddStep("⏳", "Check LY30")
+		  'AddStep("✅", "Normal values — continue observation.")
+		  'AddStep("⏳", "If bleeding continues after 10 minutes, restart the algorithm.")
+		  'ElseIf Mode = "Rotem" then
+		  'AddStep("⏳", "Check EXTEM A5" + CRLF)
+		  'AddStep("⏳", "Check FIBTEM A5")
+		  'AddStep("⏳", "Check EXTEM CT")
+		  'AddStep("⏳", "Check FIBTEM ML")
+		  'AddStep("✅", "Normal values — continue observation.")
+		  'AddStep("⏳", "If bleeding continues after 10 minutes, restart the algorithm.")
+		  'End If
 		  'End Sub
-		  
+		  LoadItems()
 		End Sub
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h21
+		Private Sub AddResult(Text As String)
+		  'Sub AddResult(Text As String)
+		  If ResultTable.SectionCount = 0 Then
+		    ResultTable.AddSection("Results")
+		  End If
+		  
+		  ResultTable.AddRow(0, Text)
+		  ResultData.Add(Text)
+		  'End Sub
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub AddStep(icon As Text, stepText As Text)
-		  'Sub AddStep(icon As Text, stepText As Text)
-		  Var row As New StepRowContainer
-		  row.SetIconAndText(icon, stepText)
-		  stepscrollarea.AddControl(row) // StepList = iOSScrollableArea or equivalent
-		  '
-		  '
-		  '
-		  'Var row As New StepRowContainer
-		  'row.SetIconAndText("check.png", "ROTEM FIBTEM A5 normal")
-		  'stepscrollarea.AddStepRow(row)
 		  
+		  
+		  Var cell As MobileTableCellData
+		  
+		  ResultTable.AddRow(0, cell)
 		End Sub
 	#tag EndMethod
 
@@ -100,9 +108,43 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub LoadItems()
+		  'Var ResultData() As String
+		  
+		  Select Case Mode
+		  Case "ROTEM"
+		    'MessageBox("Rotem selected")
+		    ResultTable.RemoveAllRows
+		    If ResultTable.SectionCount = 0 Then
+		      ResultTable.AddSection("")
+		    End If
+		    'ResultTable.DataSource = ROTEMData
+		    If rotemdata.EXTEM_A5 < 35 Then 
+		      
+		      AddResult("EXTEM < 35 → Hyperfibrinolysis")
+		      AddResult("FIBTEM < 8 → Hypofibrinogenemia")
+		    End If
+		    
+		  Case "TEG"
+		    'MessageBox("TEG selected")
+		  End Select
+		  
+		  
+		  
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h0
 		Mode As Text
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected ResultData() As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -120,6 +162,17 @@ End
 
 #tag EndWindowCode
 
+#tag Events ResultTable
+	#tag Event
+		Sub SelectionChanged(section As Integer, row As Integer)
+		  
+		  If row >= 0 And row <= UBound(ResultData) Then
+		    Var value As String = ResultData(row)
+		    MessageBox("You tapped: " + value)
+		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Index"
@@ -251,22 +304,6 @@ End
 		Visible=false
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TEGData"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
-		Type="Integer"
-		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ROTEMData"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
 		Type="Integer"
 		EditorType=""
 	#tag EndViewProperty

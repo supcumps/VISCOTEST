@@ -126,9 +126,10 @@ End
 		  result.CKH_R = CKH_RField.Text.ToDouble
 		  result.LY30 = LY30Field.Text.ToDouble
 		  
-		  Var nextScreen As New AlgorithmStepScreen("TEG") ' constructor assigns Mode
-		  nextScreen.TEGData = result                      ' <- assign the result
-		  nextscreen.show
+		  Var nextScreen As New AlgorithmStepScreen
+		  nextScreen.Mode = "TEG"
+		  nextScreen.TEGData = result
+		  nextScreen.Show
 		  
 		End Sub
 	#tag EndEvent
