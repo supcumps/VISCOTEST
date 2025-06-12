@@ -3,18 +3,26 @@ Protected Class TEGResult
 	#tag Method, Flags = &h0
 		Function IsNormal() As Boolean
 		  
-		  Return CKH_R >= 4.0 And CKH_R <= 8.0 And LY30 <= 7.0
+		  Return CKH_R >= 4.0 And CKH_R <= 8.0 And CRT_LY30 <= 7.0
 		  
 		End Function
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h0
+		CFF_A10 As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		CKH_R As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		LY30 As Double
+		CRT_A10 As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		CRT_LY30 As Double
 	#tag EndProperty
 
 
@@ -57,6 +65,22 @@ Protected Class TEGResult
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CKH_R"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Double"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CRT_LY30"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Double"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

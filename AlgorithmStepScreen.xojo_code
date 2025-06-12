@@ -48,21 +48,6 @@ End
 	#tag Event
 		Sub Opening()
 		  
-		  
-		  'If Mode = "TEG" Then
-		  'AddStep("⏳", "Check CKH-R" + CRLF)
-		  'AddStep("⏳", "Check LY30")
-		  'AddStep("✅", "Normal values — continue observation.")
-		  'AddStep("⏳", "If bleeding continues after 10 minutes, restart the algorithm.")
-		  'ElseIf Mode = "Rotem" then
-		  'AddStep("⏳", "Check EXTEM A5" + CRLF)
-		  'AddStep("⏳", "Check FIBTEM A5")
-		  'AddStep("⏳", "Check EXTEM CT")
-		  'AddStep("⏳", "Check FIBTEM ML")
-		  'AddStep("✅", "Normal values — continue observation.")
-		  'AddStep("⏳", "If bleeding continues after 10 minutes, restart the algorithm.")
-		  'End If
-		  'End Sub
 		  LoadItems()
 		End Sub
 	#tag EndEvent
@@ -70,7 +55,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub AddResult(Text As String)
-		  'Sub AddResult(Text As String)
+		  'Sub AddResult(Text As String) NEEDED
 		  If ResultTable.SectionCount = 0 Then
 		    ResultTable.AddSection("Results")
 		  End If
@@ -78,16 +63,6 @@ End
 		  ResultTable.AddRow(0, Text)
 		  ResultData.Add(Text)
 		  'End Sub
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub AddStep(icon As Text, stepText As Text)
-		  
-		  
-		  Var cell As MobileTableCellData
-		  
-		  ResultTable.AddRow(0, cell)
 		End Sub
 	#tag EndMethod
 
@@ -100,22 +75,14 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(inputMode As Text)
-		  'Sub Constructor(inputMode As Text)
-		  Mode = inputMode
-		  'End Sub
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub LoadItems()
 		  'Var ResultData() As String
+		  ResultTable.RemoveAllRows
 		  
 		  Select Case Mode
 		  Case "ROTEM"
 		    'MessageBox("Rotem selected")
-		    ResultTable.RemoveAllRows
+		    
 		    If ResultTable.SectionCount = 0 Then
 		      ResultTable.AddSection("")
 		    End If
@@ -126,16 +93,34 @@ End
 		    If rotemdata.EXTEM_A5 < 35 Then AddResult("EXTEM < 35 → Hyperfibrinolysis")
 		    If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 8 → Hypofibrinogenemia")
 		    If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
-		       AddResult("Poor Platelet Contribution")
+		      AddResult("Poor Platelet Contribution")
 		    End If
 		    
 		    If ROTEMData.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_CT > 85 Then
 		      AddResult("Low Coagulation Factors or Oral anticoagulants")
+		      
 		    End If
 		    
 		    If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult("FIBTEM_ML  >= 10→ Hyperfibrinolysis")
+		    
 		  Case "TEG"
 		    'MessageBox("TEG selected")
+		    
+		    If TEGDATA.CFF_A10 < 15 Then 
+		      AddResult("CFF_A10 < 15 → Low Fibrinogen")
+		    End If
+		    
+		    If TEGDATA.CFF_A10 >=  15 And TEGDATA.CRT_A10 < 47 Then
+		      AddResult("Poor Platelet Contribution")
+		    End If
+		    
+		    If TEGDATA.CFF_A10 >=15 And TEGData.CKH_R > 10 Then
+		      AddResult("Low Coagulation Factors or Oral anticoagulants")
+		    End If
+		    
+		    If TEGDATA.CRT_LY30 > 2.2 Then AddResult("CRT_LY30 > 2.2 → Hyperfibrinolysis")
+		    
+		    
 		  End Select
 		  
 		  
@@ -188,7 +173,28 @@ End
 		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
 		  Case "FIBTEM < 8 → Hypofibrinogenemia"
 		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
+		  Case "Poor Platelet Contribution"
+		    MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
+		    Var Platelets As New PlateletScreen
+		    Platelets.show
+		  Case "Low Coagulation Factors or Oral anticoagulants"
+		    MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
+		  Case "FIBTEM_ML  >= 10→ Hyperfibrinolysis"
+		    MessageBox("Consider additional tranexamic acid")
 		  End Select
+		  
+		  
+		  'If rotemdata.EXTEM_A5 < 35 Then AddResult("EXTEM < 35 → Hyperfibrinolysis")
+		  'If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 8 → Hypofibrinogenemia")
+		  'If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
+		  'AddResult("Poor Platelet Contribution")
+		  'End If
+		  
+		  'If ROTEMData.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_CT > 85 Then
+		  'AddResult("Low Coagulation Factors or Oral anticoagulants")
+		  'End If
+		  '
+		  'If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult("FIBTEM_ML  >= 10→ Hyperfibrinolysis")
 		End Sub
 	#tag EndEvent
 #tag EndEvents

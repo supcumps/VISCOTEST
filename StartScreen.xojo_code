@@ -11,7 +11,7 @@ Begin MobileScreen StartScreen
    ScaleFactor     =   0.0
    TabBarVisible   =   True
    TabIcon         =   0
-   TintColor       =   &c000000
+   TintColor       =   &c00000000
    Title           =   "TEGRotem application"
    Top             =   0
    Begin MobileSwitch TestSwitch
@@ -114,19 +114,19 @@ Begin MobileScreen StartScreen
       Width           =   160
       _ClosingFired   =   False
    End
-   Begin MobileButton ROTEMButton
+   Begin MobileButton TEGButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ROTEMButton, 8, , 0, False, +1.00, 4, 1, 30, , True
-      AutoLayout      =   ROTEMButton, 1, ChooseTestLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
-      AutoLayout      =   ROTEMButton, 10, ChooseTestLabel, 10, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   ROTEMButton, 7, , 0, False, +1.00, 4, 1, 100, , True
-      Caption         =   "ROTEM"
-      CaptionColor    =   &c007AFF00
+      AutoLayout      =   TEGButton, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   TEGButton, 1, ROTEMButton, 2, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   TEGButton, 10, ROTEMButton, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   TEGButton, 7, , 0, False, +1.00, 4, 1, 100, , True
+      Caption         =   "TEG"
+      CaptionColor    =   &c00000000
       ControlCount    =   0
       Enabled         =   True
       Height          =   30
-      Left            =   132
+      Left            =   232
       LockedInPosition=   False
       Scope           =   2
       TextFont        =   "System Bold		"
@@ -137,20 +137,22 @@ Begin MobileScreen StartScreen
       Width           =   100
       _ClosingFired   =   False
    End
-   Begin MobileButton TEGButton
+   Begin MobileButton ROTEMButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TEGButton, 8, , 0, False, +1.00, 4, 1, 30, , True
-      AutoLayout      =   TEGButton, 1, ROTEMButton, 2, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   TEGButton, 10, ROTEMButton, 10, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   TEGButton, 7, , 0, False, +1.00, 4, 1, 100, , True
-      Caption         =   "TEG"
-      CaptionColor    =   &c007AFF00
+      AutoLayout      =   ROTEMButton, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   ROTEMButton, 1, ChooseTestLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   ROTEMButton, 10, ChooseTestLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   ROTEMButton, 7, , 0, False, +1.00, 4, 1, 100, , True
+      Caption         =   "ROTEM"
+      CaptionColor    =   &c00000000
       ControlCount    =   0
       Enabled         =   True
       Height          =   30
-      Left            =   232
+      Left            =   132
       LockedInPosition=   False
+      PanelIndex      =   -1
+      Parent          =   ""
       Scope           =   2
       TextFont        =   "System Bold		"
       TextSize        =   0
@@ -194,6 +196,17 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events TEGButton
+	#tag Event
+		Sub Pressed()
+		  
+		  Var TEGSreen As  New TEGInputScreen
+		  TEGSreen.Show()
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events ROTEMButton
 	#tag Event
 		Sub Pressed()
@@ -205,14 +218,9 @@ End
 		  
 		End Sub
 	#tag EndEvent
-#tag EndEvents
-#tag Events TEGButton
 	#tag Event
-		Sub Pressed()
-		  
-		  Var TEGSreen As  New TEGInputScreen
-		  TEGSreen.Show()
-		  
+		Sub Opening()
+		  SetBackgroundColorXC(color.RGB(139, 255, 255))
 		  
 		End Sub
 	#tag EndEvent

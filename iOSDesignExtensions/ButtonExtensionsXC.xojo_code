@@ -44,16 +44,64 @@ Protected Module ButtonExtensionsXC
 
 	#tag Method, Flags = &h0
 		Sub SetBackgroundColorXC(Extends bt As MobileButton, value As color)
+		  '// Function(SetBackgroundColorXC(Extends bt As MobileButton, value As color)
+		  'Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
+		  'Declare Function colorWithRGBA Lib "UIKit.framework" Selector "colorWithRed:green:blue:alpha:" ( UIColorClassRef As Ptr, red As CGFloat, green As CGFloat, blue As CGFloat, alpha As CGFloat) As Ptr
+		  'Declare Function view Lib "UIKit.framework" Selector "view" (UIViewController As Ptr) As Ptr
+		  'Declare Sub setBackgroundColor Lib "UIKit.framework" Selector "setBackgroundColor:" (UIView As Ptr, UIColor As Ptr)
+		  '
+		  'Dim UIColorClassPtr As Ptr =  NSClassFromString("UIColor")
+		  'Dim colorPtr As Ptr = colorWithRGBA(UIColorClassPtr, (value.red / 255.0), (value.Green / 255.0), (value.Blue / 255.0), (1.0-value.Alpha/255.0))
+		  'Dim viewPtr As Ptr = bt.Handle
+		  'SetBackgroundColor(viewPtr, colorPtr)
+		  
+		  
+		  // Function definition (likely declared earlier, not shown here):
+		  // SetBackgroundColorXC(Extends bt As MobileButton, value As Color)
+		  // Purpose: Sets the background color of a MobileButton to the given color.
 		  
 		  Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
-		  Declare Function colorWithRGBA Lib "UIKit.framework" Selector "colorWithRed:green:blue:alpha:" ( UIColorClassRef As Ptr, red As CGFloat, green As CGFloat, blue As CGFloat, alpha As CGFloat) As Ptr
-		  Declare Function view Lib "UIKit.framework" Selector "view" (UIViewController As Ptr) As Ptr
-		  Declare Sub setBackgroundColor Lib "UIKit.framework" Selector "setBackgroundColor:" (UIView As Ptr, UIColor As Ptr)
+		  // Calls Apple's Foundation framework to get a pointer (class reference) to the class named by a string.
+		  // Here, it will be used to get a reference to the "UIColor" class.
 		  
-		  Dim UIColorClassPtr As Ptr =  NSClassFromString("UIColor")
-		  Dim colorPtr As ptr = colorWithRGBA(UIColorClassPtr, (value.red / 255.0), (value.Green / 255.0), (value.Blue / 255.0), (1.0-value.Alpha/255.0))
+		  Declare Function colorWithRGBA Lib "UIKit.framework" Selector "colorWithRed:green:blue:alpha:" _
+		  (UIColorClassRef As Ptr, red As CGFloat, green As CGFloat, blue As CGFloat, alpha As CGFloat) As Ptr
+		  // Declares the Objective-C class method `+colorWithRed:green:blue:alpha:` on UIColor.
+		  // This method returns a UIColor object with the specified RGBA values.
+		  
+		  Declare Function view Lib "UIKit.framework" Selector "view" (UIViewController As Ptr) As Ptr
+		  // This declare is actually **not used** in the code you posted. Possibly left over from earlier code.
+		  // It would get the UIView of a UIViewController, but MobileButton is a UIView subclass already.
+		  
+		  Declare Sub setBackgroundColor Lib "UIKit.framework" Selector "setBackgroundColor:" _
+		  (UIView As Ptr, UIColor As Ptr)
+		  // Declares the Objective-C instance method `-setBackgroundColor:`
+		  // It sets the background color of a UIView (including UIButton, which is a subclass).
+		  
+		  Dim UIColorClassPtr As Ptr = NSClassFromString("UIColor")
+		  // Gets a pointer to the UIColor class so we can call class methods on it.
+		  // Equivalent to: UIColor.self in Swift/Objective-C.
+		  
+		  Dim colorPtr As Ptr = colorWithRGBA(UIColorClassPtr, (value.Red / 255.0), (value.Green / 255.0), (value.Blue / 255.0), (1.0 - value.Alpha / 255.0))
+		  // Creates a UIColor pointer using the given color value's RGB components, normalized to 0.0–1.0.
+		  // Note: Xojo's Color.Alpha is 0 (opaque) to 255 (transparent), while UIKit uses 1.0 (opaque) to 0.0 (transparent).
+		  // Hence the (1.0 - Alpha/255.0) transformation.
+		  
 		  Dim viewPtr As Ptr = bt.Handle
+		  // Gets a pointer to the actual UIKit UIButton (UIView) that backs the Xojo MobileButton.
+		  
 		  SetBackgroundColor(viewPtr, colorPtr)
+		  // Sets the background color of the UIButton by calling setBackgroundColor: with the UIColor we created.
+		  
+		  'Summary:
+		  '
+		  'This extension method allows you To Do what Xojo’s MobileButton does Not natively support — directly setting 
+		  'the button background Color. It uses Declare statements To tap into Objective-C APIs In UIKit, 
+		  'And manipulates UIKit-level views through their memory pointers (Ptr), 
+		  'letting you apply fine-grained customization like native iOS developers Do In Swift Or Objective-C.
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
