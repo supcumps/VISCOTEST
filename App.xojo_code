@@ -8,6 +8,20 @@ Inherits MobileApplication
 	#tag EndEvent
 
 
+	#tag Note, Name = Time taken
+		09/06/2025  6 hourd
+		10/06/2025   6 hours
+		 11/06/2025 7 hours    
+		12/06/2025  0600 - 
+		
+	#tag EndNote
+
+	#tag Note, Name = TODO
+		ALPHABETICAL RDER FOR INPUT SCREENS?
+		
+	#tag EndNote
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Name"

@@ -301,6 +301,138 @@ Begin MobileScreen ROTEMInputScreen
       Width           =   100
       _ClosingFired   =   False
    End
+   Begin MobileTextField INTEM_CTField
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   0
+      AllowAutoCorrection=   False
+      AllowSpellChecking=   False
+      AutoCapitalizationType=   0
+      AutoLayout      =   INTEM_CTField, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   INTEM_CTField, 1, INTEM_CTLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   INTEM_CTField, 10, INTEM_CTLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   INTEM_CTField, 7, , 0, False, +1.00, 4, 1, 100, , True
+      BorderStyle     =   3
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   34
+      Hint            =   "INTEM_CT"
+      InputType       =   4
+      Left            =   128
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      ReturnCaption   =   0
+      Scope           =   0
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   ""
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   300
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel INTEM_CTLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   INTEM_CTLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   INTEM_CTLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   INTEM_CTLabel, 3, FIBTEM_MLField, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   INTEM_CTLabel, 7, , 0, False, +1.00, 4, 1, 100, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "INTEM_CT"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   302
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileTextField HEPTEM_CTField
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   0
+      AllowAutoCorrection=   False
+      AllowSpellChecking=   False
+      AutoCapitalizationType=   0
+      AutoLayout      =   HEPTEM_CTField, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   HEPTEM_CTField, 1, HEPTEM_CTLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   HEPTEM_CTField, 10, HEPTEM_CTLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   HEPTEM_CTField, 7, , 0, False, +1.00, 4, 1, 100, , True
+      BorderStyle     =   3
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   34
+      Hint            =   "HEPTEM_CT_CT"
+      InputType       =   4
+      Left            =   128
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      ReturnCaption   =   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   ""
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   350
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel HEPTEM_CTLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   HEPTEM_CTLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   HEPTEM_CTLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   HEPTEM_CTLabel, 3, INTEM_CTLabel, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   HEPTEM_CTLabel, 7, , 0, False, +1.00, 4, 1, 100, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "HEPTEM_CT"
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   352
+      Visible         =   True
+      Width           =   100
+      _ClosingFired   =   False
+   End
 End
 #tag EndMobileScreen
 
@@ -308,6 +440,21 @@ End
 	#tag Event
 		Sub Opening()
 		  Me.SetBackgroundColorXC(&cFFFDEE)
+		  
+		  // set up which fields to be seen according to Procedure Type
+		  Select Case ProcedureType
+		  Case "General"
+		    HEPTEM_CTField.Visible = False
+		    HEPTEM_CTLABEL.Visible = False
+		    INTEM_CTField.Visible = False
+		    INTEM_CTLABEL.Visible = False
+		  Case "Cardiac"
+		    HEPTEM_CTField.Visible = True
+		    HEPTEM_CTLABEL.Visible = True
+		    INTEM_CTField.Visible = True
+		    INTEM_CTLABEL.Visible = True
+		  End Select
+		  
 		End Sub
 	#tag EndEvent
 
@@ -318,11 +465,14 @@ End
 	#tag Event
 		Sub Pressed()
 		  Var result As New ROTEMResult
+		  // GENERAL/OBGYN
 		  result.EXTEM_A5 = Extem_A5Field.Text.ToDouble
-		  result.FIBTEM_A5 = Fibtem_A5Field.Text.ToDouble
 		  result.EXTEM_CT = Extem_CTField.Text.ToDouble
+		  result.FIBTEM_A5 = Fibtem_A5Field.Text.ToDouble
 		  result.FIBTEM_ML = Fibtem_MLField.Text.ToDouble
-		  
+		  // CARDIAC/VASCULAR
+		  result.HEPTEM_CT = HEPTEM_CTField.text.ToDouble
+		  result.INTEM_CT = INTEM_CTField.Text.ToDouble
 		  
 		  Var nextScreen As New AlgorithmStepScreen
 		  nextScreen.Mode = "ROTEM"

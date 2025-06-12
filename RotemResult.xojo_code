@@ -13,7 +13,7 @@ Protected Class RotemResult
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		EXTEM_CT As Integer
+		EXTEM_CT As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -22,6 +22,14 @@ Protected Class RotemResult
 
 	#tag Property, Flags = &h0
 		FIBTEM_ML As Double
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		HEPTEM_CT As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		INTEM_CT As Double
 	#tag EndProperty
 
 

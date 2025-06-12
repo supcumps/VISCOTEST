@@ -18,6 +18,10 @@ Protected Class TEGResult
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		CKR As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		CRT_A10 As Integer
 	#tag EndProperty
 

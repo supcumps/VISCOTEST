@@ -1,5 +1,10 @@
 #tag Module
 Protected Module Globals
+	#tag Property, Flags = &h0
+		ProcedureType As String
+	#tag EndProperty
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Name"

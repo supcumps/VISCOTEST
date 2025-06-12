@@ -28,7 +28,7 @@ Begin MobileScreen StartScreen
       LockedInPosition=   False
       Scope           =   2
       TintColor       =   &c000000
-      Top             =   309
+      Top             =   379
       Value           =   False
       Visible         =   True
       Width           =   51
@@ -40,7 +40,7 @@ Begin MobileScreen StartScreen
       Alignment       =   0
       AutoLayout      =   SignificantBleedingLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   SignificantBleedingLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
-      AutoLayout      =   SignificantBleedingLabel, 3, image, 4, False, +1.00, 4, 1, 50, , True
+      AutoLayout      =   SignificantBleedingLabel, 3, CardiacButton, 4, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   SignificantBleedingLabel, 7, , 0, False, +1.00, 4, 1, 265, , True
       ControlCount    =   0
       Enabled         =   True
@@ -58,7 +58,7 @@ Begin MobileScreen StartScreen
       TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   310
+      Top             =   380
       Visible         =   True
       Width           =   265
       _ClosingFired   =   False
@@ -87,7 +87,7 @@ Begin MobileScreen StartScreen
       TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   360
+      Top             =   430
       Visible         =   True
       Width           =   104
       _ClosingFired   =   False
@@ -132,7 +132,7 @@ Begin MobileScreen StartScreen
       TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   360
+      Top             =   430
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -157,9 +157,55 @@ Begin MobileScreen StartScreen
       TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   360
+      Top             =   430
       Visible         =   True
       Width           =   100
+      _ClosingFired   =   False
+   End
+   Begin MobileButton CardiacButton
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   CardiacButton, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   CardiacButton, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   CardiacButton, 3, GeneralOBG, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   CardiacButton, 7, , 0, False, +1.00, 4, 1, 125, , True
+      Caption         =   "Cardiac/Vascular"
+      CaptionColor    =   &c00000000
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   125
+      LockedInPosition=   False
+      Scope           =   2
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   330
+      Visible         =   True
+      Width           =   125
+      _ClosingFired   =   False
+   End
+   Begin MobileButton GeneralOBG
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   GeneralOBG, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   GeneralOBG, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   GeneralOBG, 3, image, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   GeneralOBG, 7, , 0, False, +1.00, 4, 1, 125, , True
+      Caption         =   "General/Obstetric"
+      CaptionColor    =   &c00000000
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   125
+      LockedInPosition=   False
+      Scope           =   2
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   280
+      Visible         =   True
+      Width           =   125
       _ClosingFired   =   False
    End
 End
@@ -181,14 +227,22 @@ End
 		Sub ValueChanged()
 		  If TestSwitch.Value Then   // there is a risk of significant bleeding
 		    'MessageBox("ON")
-		    
-		    Var  Message As String = "High risk Of Fibrinolysis?" + EndOfLine +  _
-		    " ( E.g. trauma, obstetric, major orthopaedic Case " + EndOfLine +  _
-		    "Consider Tranexamic Acid 1g IV now!"   + EndOfLine   
-		    MessageBox(Message)
-		    
-		    TestSwitch.Value  = FALSE
-		    'd.Explanation = "Administration before bleeding helps limit blood loss"
+		    Select Case ProcedureType
+		    Case "General"
+		      Var  Message As String = "High risk Of Fibrinolysis?" + EndOfLine +  _
+		      " ( E.g. trauma, obstetric, major orthopaedic Case " + EndOfLine +  _
+		      "Consider Tranexamic Acid 1g IV now!"   + EndOfLine   
+		      MessageBox(Message)
+		      
+		      TestSwitch.Value  = FALSE
+		      'd.Explanation = "Administration before bleeding helps limit blood loss"
+		    Case"Cardiac"
+		      Var  Message As String = "High risk of Fibrinolysis? E.g. CBP, aortic dissection " + EndOfLine + _
+		      "Give Tranexamic Acid initial 15mg/kg then check cardiac infusion schedule"
+		      MessageBox(Message)
+		      
+		      TestSwitch.Value  = False
+		    End Select
 		    
 		  Else
 		    'MessageBox("OFF")
@@ -220,7 +274,22 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  SetBackgroundColorXC(color.RGB(139, 255, 255))
+		  SetBackgroundColorXC(color.RGB(255, 255, 255))
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events CardiacButton
+	#tag Event
+		Sub Pressed()
+		  ProcedureType = "Cardiac"
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events GeneralOBG
+	#tag Event
+		Sub Pressed()
+		  ProcedureType = "General"
 		  
 		End Sub
 	#tag EndEvent
