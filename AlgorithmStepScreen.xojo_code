@@ -171,9 +171,9 @@ End
 		  Select Case value
 		  Case  "EXTEM < 35 → Hyperfibrinolysis" 
 		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
-		  Case ""FIBTEM < 12 → Low Fibrinogen")"
-		    MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE")
-		  Case "Poor Platelet Contribution"
+		  Case "FIBTEM < 12 → Low Fibrinogen"
+		    MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
+		  Case  "Poor Platelet Contribution"
 		    MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
 		    Var Platelets As New PlateletScreen
 		    Platelets.show
@@ -185,14 +185,14 @@ End
 		  Case "CRT_A10 < 47 → Hyperfibrinolysis" 
 		    MessageBox(" Tranexamic Acid 1 gram Or 15mg/kg")
 		  Case "CFF_A10 < 15 → Low Fibrinogen"
-		    MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE")
+		    MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
 		  Case "Poor Platelet Contribution"
 		    MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
 		    Var Platelets As New PlateletScreen
 		    Platelets.show
 		  Case "Low Coagulation Factors or Oral anticoagulants"
 		    MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
-		  Case "CRT_LY30 > 2.2 → Hyperfibrinolysis")
+		  Case "CRT_LY30 > 2.2 → Hyperfibrinolysis"
 		    MessageBox("Consider additional tranexamic acid")
 		    
 		  End Select
