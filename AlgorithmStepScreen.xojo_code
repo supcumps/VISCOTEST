@@ -91,7 +91,7 @@ End
 		    
 		    'ResultTable.DataSource = ROTEMData
 		    If rotemdata.EXTEM_A5 < 35 Then AddResult("EXTEM < 35 → Hyperfibrinolysis")
-		    If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 8 → Hypofibrinogenemia")
+		    If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 12 → Low Fibrinogen")
 		    If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
 		      AddResult("Poor Platelet Contribution")
 		    End If
@@ -106,8 +106,8 @@ End
 		  Case "TEG"
 		    'MessageBox("TEG selected")
 		    
-		    If TEGDATA.CFF_A10 < 15 Then 
-		      AddResult("CFF_A10 < 15 → Low Fibrinogen")
+		    If TEGDATA.CRT_A10 < 47 Then 
+		      AddResult("CRT_A10 < 47 → Hyperfibrinolysis")
 		    End If
 		    
 		    If TEGDATA.CFF_A10 >=  15 And TEGDATA.CRT_A10 < 47 Then
@@ -171,8 +171,8 @@ End
 		  Select Case value
 		  Case  "EXTEM < 35 → Hyperfibrinolysis" 
 		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
-		  Case "FIBTEM < 8 → Hypofibrinogenemia"
-		    MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
+		  Case ""FIBTEM < 12 → Low Fibrinogen")"
+		    MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE")
 		  Case "Poor Platelet Contribution"
 		    MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
 		    Var Platelets As New PlateletScreen
@@ -181,6 +181,20 @@ End
 		    MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
 		  Case "FIBTEM_ML  >= 10→ Hyperfibrinolysis"
 		    MessageBox("Consider additional tranexamic acid")
+		    
+		  Case "CRT_A10 < 47 → Hyperfibrinolysis" 
+		    MessageBox(" Tranexamic Acid 1 gram Or 15mg/kg")
+		  Case "CFF_A10 < 15 → Low Fibrinogen"
+		    MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE")
+		  Case "Poor Platelet Contribution"
+		    MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
+		    Var Platelets As New PlateletScreen
+		    Platelets.show
+		  Case "Low Coagulation Factors or Oral anticoagulants"
+		    MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
+		  Case "CRT_LY30 > 2.2 → Hyperfibrinolysis")
+		    MessageBox("Consider additional tranexamic acid")
+		    
 		  End Select
 		  
 		  
