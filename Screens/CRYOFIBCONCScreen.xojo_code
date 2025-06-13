@@ -1,5 +1,5 @@
 #tag MobileScreen
-Begin MobileScreen PlateletScreen
+Begin MobileScreen CRYOFIBCONCScreen
    BackButtonCaption=   ""
    Compatibility   =   ""
    ControlCount    =   0
@@ -12,98 +12,37 @@ Begin MobileScreen PlateletScreen
    TabBarVisible   =   True
    TabIcon         =   0
    TintColor       =   &c000000
-   Title           =   "Platelets"
+   Title           =   "Cryo or FibConc"
    Top             =   0
-   Begin MobileImageViewer MultiplateImageViewer
+   Begin MobileImageViewer CryoImageViewer
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   MultiplateImageViewer, 8, , 0, False, +1.00, 4, 1, 310, , True
-      AutoLayout      =   MultiplateImageViewer, 1, <Parent>, 1, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   MultiplateImageViewer, 2, <Parent>, 2, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   MultiplateImageViewer, 3, <Parent>, 3, False, +1.00, 4, 1, 86, , True
+      AutoLayout      =   CryoImageViewer, 8, , 0, False, +1.00, 4, 1, 293, , True
+      AutoLayout      =   CryoImageViewer, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   CryoImageViewer, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   CryoImageViewer, 3, TopLayoutGuide, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   CryoImageViewer, 7, , 0, False, +1.00, 4, 1, 327, , True
       ControlCount    =   0
       DisplayMode     =   0
       Enabled         =   True
-      Height          =   310
-      Image           =   1081632767
-      Left            =   0
-      LockedInPosition=   False
-      Scope           =   0
-      TintColor       =   &c000000
-      Top             =   86
-      URL             =   ""
-      Visible         =   True
-      Width           =   375
-      _ClosingFired   =   False
-   End
-   Begin MobileButton GetPDFButton
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   GetPDFButton, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   GetPDFButton, 8, , 0, False, +1.00, 4, 1, 30, , True
-      AutoLayout      =   GetPDFButton, 3, PlateletsImageViewer, 4, False, +1.00, 4, 1, 20, , True
-      AutoLayout      =   GetPDFButton, 7, , 0, False, +1.00, 4, 1, 100, , True
-      Caption         =   "Platelet PDF"
-      CaptionColor    =   &c00000000
-      ControlCount    =   0
-      Enabled         =   True
-      Height          =   30
-      Left            =   137
-      LockedInPosition=   False
-      Scope           =   0
-      TextFont        =   "System Bold		"
-      TextSize        =   0
-      TintColor       =   &c000000
-      Top             =   680
-      Visible         =   True
-      Width           =   100
-      _ClosingFired   =   False
-   End
-   Begin MobileImageViewer PlateletsImageViewer
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   PlateletsImageViewer, 8, , 0, False, +1.00, 4, 1, 244, , True
-      AutoLayout      =   PlateletsImageViewer, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
-      AutoLayout      =   PlateletsImageViewer, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
-      AutoLayout      =   PlateletsImageViewer, 3, MultiplateImageViewer, 4, False, +1.00, 4, 1, 20, , True
-      ControlCount    =   0
-      DisplayMode     =   0
-      Enabled         =   True
-      Height          =   244
-      Image           =   482650111
+      Height          =   293
+      Image           =   1894062079
       Left            =   20
       LockedInPosition=   False
       Scope           =   2
       TintColor       =   &c000000
-      Top             =   416
+      Top             =   165
       URL             =   ""
       Visible         =   True
-      Width           =   335
+      Width           =   327
       _ClosingFired   =   False
    End
 End
 #tag EndMobileScreen
 
 #tag WindowCode
-	#tag Event
-		Sub Opening()
-		  Me.SetBackgroundColorXC(&cFFFDEE)
-		End Sub
-	#tag EndEvent
-
-
 #tag EndWindowCode
 
-#tag Events GetPDFButton
-	#tag Event
-		Sub Pressed()
-		  
-		  // to display the relevant .pdf
-		  
-		  messagebox("to be added")
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Index"

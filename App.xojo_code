@@ -12,7 +12,7 @@ Inherits MobileApplication
 		09/06/2025  6 hourd
 		10/06/2025   6 hours
 		 11/06/2025 7 hours    
-		12/06/2025  0600 - 08:00 --> 2 HOURS
+		12/06/2025  0600 - 08:00 --> 2 HOURS  10:30 - 
 		
 	#tag EndNote
 
