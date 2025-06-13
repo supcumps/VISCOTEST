@@ -151,8 +151,6 @@ Begin MobileScreen StartScreen
       Height          =   30
       Left            =   132
       LockedInPosition=   False
-      PanelIndex      =   -1
-      Parent          =   ""
       Scope           =   2
       TextFont        =   "System Bold		"
       TextSize        =   0
@@ -220,6 +218,19 @@ End
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h0
+		Function CheckPrecureType() As Boolean
+		  If ProcedureType.Trim = "" Then
+		    MessageBox("Please choose the procedure type before continuing")
+		    Return False
+		  Else
+		    return TRUE
+		  End If
+		  
+		End Function
+	#tag EndMethod
+
+
 #tag EndWindowCode
 
 #tag Events TestSwitch
@@ -254,8 +265,10 @@ End
 	#tag Event
 		Sub Pressed()
 		  
-		  Var TEGSreen As  New TEGInputScreen
-		  TEGSreen.Show()
+		  If CheckPrecureType then
+		    Var TEGSreen As  New TEGInputScreen
+		    TEGSreen.Show()
+		  End If
 		  
 		  
 		End Sub
@@ -264,10 +277,10 @@ End
 #tag Events ROTEMButton
 	#tag Event
 		Sub Pressed()
-		  
-		  
-		  Var RotemScreen As  New ROTEMInputScreen
-		  RotemScreen.Show
+		  If CheckPrecureType Then
+		    Var RotemScreen As  New ROTEMInputScreen
+		    RotemScreen.Show
+		  End If
 		  
 		  
 		End Sub
