@@ -46,7 +46,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   263
+      Top             =   313
       Visible         =   True
       Width           =   111
       _ClosingFired   =   False
@@ -61,6 +61,7 @@ Begin MobileScreen TEGInputScreen
       AutoLayout      =   CRT_LY30Field, 8, , 0, False, +1.00, 4, 1, 34, , True
       AutoLayout      =   CRT_LY30Field, 1, CRT_LY30Label, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
       AutoLayout      =   CRT_LY30Field, 10, CRT_LY30Label, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   CRT_LY30Field, 7, , 0, False, +1.00, 4, 1, 111, , True
       BorderStyle     =   3
       ControlCount    =   0
       Enabled         =   True
@@ -82,7 +83,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   313
+      Top             =   363
       Visible         =   True
       Width           =   111
       _ClosingFired   =   False
@@ -105,7 +106,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   395
+      Top             =   445
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -116,7 +117,7 @@ Begin MobileScreen TEGInputScreen
       Alignment       =   2
       AutoLayout      =   CKH_RLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   CKH_RLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
-      AutoLayout      =   CKH_RLabel, 3, CRT_A10Label, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   CKH_RLabel, 3, CKRLabel, 4, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   CKH_RLabel, 7, , 0, False, +1.00, 4, 1, 80, , True
       ControlCount    =   0
       Enabled         =   True
@@ -134,7 +135,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   265
+      Top             =   315
       Visible         =   True
       Width           =   80
       _ClosingFired   =   False
@@ -163,7 +164,7 @@ Begin MobileScreen TEGInputScreen
       TextFont        =   "System Bold		"
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   315
+      Top             =   365
       Visible         =   True
       Width           =   80
       _ClosingFired   =   False
@@ -209,10 +210,10 @@ Begin MobileScreen TEGInputScreen
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       Alignment       =   2
-      AutoLayout      =   CFF_a10Label, 8, , 0, False, +1.00, 4, 1, 30, , True
-      AutoLayout      =   CFF_a10Label, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
-      AutoLayout      =   CFF_a10Label, 3, TopLayoutGuide, 3, False, +1.00, 4, 1, 100, , True
-      AutoLayout      =   CFF_a10Label, 7, , 0, False, +1.00, 4, 1, 80, , True
+      AutoLayout      =   CFF_A10Label, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   CFF_A10Label, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   CFF_A10Label, 3, TopLayoutGuide, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   CFF_A10Label, 7, , 0, False, +1.00, 4, 1, 80, , True
       ControlCount    =   0
       Enabled         =   True
       Height          =   30
@@ -300,6 +301,72 @@ Begin MobileScreen TEGInputScreen
       Width           =   81
       _ClosingFired   =   False
    End
+   Begin MobileTextField CKRField
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   0
+      AllowAutoCorrection=   False
+      AllowSpellChecking=   False
+      AutoCapitalizationType=   0
+      AutoLayout      =   CKRField, 8, , 0, False, +1.00, 4, 1, 34, , True
+      AutoLayout      =   CKRField, 1, CKRLabel, 2, False, +1.00, 4, 1, *kStdControlGapH, , True
+      AutoLayout      =   CKRField, 10, CKRLabel, 10, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   CKRField, 7, , 0, False, +1.00, 4, 1, 111, , True
+      BorderStyle     =   3
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   34
+      Hint            =   "Enter CKR"
+      InputType       =   4
+      Left            =   108
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      ReturnCaption   =   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   ""
+      TextColor       =   &c000000
+      TextFont        =   ""
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   263
+      Visible         =   True
+      Width           =   111
+      _ClosingFired   =   False
+   End
+   Begin MobileLabel CKRLabel
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   2
+      AutoLayout      =   CKRLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
+      AutoLayout      =   CKRLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   CKRLabel, 3, CRT_A10Label, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   CKRLabel, 7, , 0, False, +1.00, 4, 1, 80, , True
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   30
+      Left            =   20
+      LineBreakMode   =   0
+      LockedInPosition=   False
+      MaximumCharactersAllowed=   0
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "CKR"
+      TextColor       =   &c000000
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   265
+      Visible         =   True
+      Width           =   80
+      _ClosingFired   =   False
+   End
 End
 #tag EndMobileScreen
 
@@ -307,6 +374,15 @@ End
 	#tag Event
 		Sub Opening()
 		  Me.SetBackgroundColorXC(&cFFFDEE)
+		  
+		  // set up which fields to be seen according to Procedure Type
+		  Select Case ProcedureType
+		  Case "General"
+		    
+		  Case "Cardiac"
+		    
+		  End Select
+		  
 		End Sub
 	#tag EndEvent
 
@@ -319,9 +395,11 @@ End
 		  
 		  Var result As New TEGResult
 		  result.CFF_A10 = CFF_A10Field.Text.ToDouble
+		  result.CKR  =  CKRField.Text.ToDouble
 		  result.CKH_R = CKH_RField.Text.ToDouble
 		  result.CRT_A10 = CRT_A10Field.Text.ToDouble
 		  result.CRT_LY30 = CRT_LY30Field.Text.ToDouble
+		  
 		  
 		  
 		  Var nextScreen As New AlgorithmStepScreen

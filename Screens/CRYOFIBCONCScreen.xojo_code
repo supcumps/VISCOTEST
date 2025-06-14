@@ -20,7 +20,7 @@ Begin MobileScreen CRYOFIBCONCScreen
       AutoLayout      =   CryoImageViewer, 8, , 0, False, +1.00, 4, 1, 293, , True
       AutoLayout      =   CryoImageViewer, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
       AutoLayout      =   CryoImageViewer, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
-      AutoLayout      =   CryoImageViewer, 3, TopLayoutGuide, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   CryoImageViewer, 3, CryoTextArea, 4, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   CryoImageViewer, 7, , 0, False, +1.00, 4, 1, 327, , True
       ControlCount    =   0
       DisplayMode     =   0
@@ -31,10 +31,43 @@ Begin MobileScreen CRYOFIBCONCScreen
       LockedInPosition=   False
       Scope           =   2
       TintColor       =   &c000000
-      Top             =   165
+      Top             =   230
       URL             =   ""
       Visible         =   True
       Width           =   327
+      _ClosingFired   =   False
+   End
+   Begin MobileTextArea CryoTextArea
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      Alignment       =   1
+      AllowAutoCorrection=   False
+      AllowSpellChecking=   False
+      AutoCapitalizationType=   0
+      AutoLayout      =   CryoTextArea, 7, <Parent>, 7, False, +1.00, 4, 1, -20, , True
+      AutoLayout      =   CryoTextArea, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
+      AutoLayout      =   CryoTextArea, 3, TopLayoutGuide, 4, False, +1.00, 4, 1, 50, , True
+      AutoLayout      =   CryoTextArea, 8, , 0, False, +1.00, 4, 1, 95, , True
+      BorderStyle     =   0
+      ControlCount    =   0
+      Enabled         =   True
+      Height          =   95
+      Left            =   10
+      LockedInPosition=   False
+      maximumCharactersAllowed=   0
+      ReadOnly        =   False
+      Scope           =   2
+      SelectedText    =   ""
+      SelectionLength =   0
+      SelectionStart  =   0
+      Text            =   "Clinician discretion for Fibrinogen Concentrate\n\n Usually single dose For severely low FIBTEM or CFF"
+      TextColor       =   &c000000
+      TextFont        =   "System Bold		"
+      TextSize        =   0
+      TintColor       =   &c000000
+      Top             =   115
+      Visible         =   True
+      Width           =   355
       _ClosingFired   =   False
    End
 End

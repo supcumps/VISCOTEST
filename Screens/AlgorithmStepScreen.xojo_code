@@ -78,37 +78,36 @@ End
 		Sub LoadItems()
 		  'Var ResultData() As String
 		  ResultTable.RemoveAllRows
+		  If ResultTable.SectionCount = 0 Then
+		    ResultTable.AddSection("")
+		  End If
+		  
 		  Select Case ProcedureType
 		  Case "General"
 		    Select Case Mode
 		    Case "ROTEM"
 		      'MessageBox("Rotem selected")
 		      
-		      If ResultTable.SectionCount = 0 Then
-		        ResultTable.AddSection("")
-		      End If
-		      
-		      
-		      
 		      'ResultTable.DataSource = ROTEMData
-		      If rotemdata.EXTEM_A5 < 35 Then AddResult("EXTEM < 35 → Hyperfibrinolysis")
-		      If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 12 → Low Fibrinogen")
+		      If rotemdata.EXTEM_A5 < 35 Then AddResult("Hyperfibrinolysis")
+		      
+		      If rotemdata.FIBTEM_A5 < 12 Then AddResult("Low Fibrinogen")
+		      
 		      If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
 		        AddResult("Poor Platelet Contribution")
 		      End If
 		      
 		      If ROTEMData.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_CT > 85 Then
-		        AddResult("Low Coagulation Factors or Oral anticoagulants")
-		        
+		        AddResult("Factors")
 		      End If
 		      
-		      If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult("FIBTEM_ML  >= 10→ Hyperfibrinolysis")
+		      If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult("Hyperfibrinolysis")
 		      
 		    Case "TEG"
 		      'MessageBox("TEG selected")
 		      
 		      If TEGDATA.CRT_A10 < 47 Then 
-		        AddResult("CRT_A10 < 47 → Hyperfibrinolysis")
+		        AddResult("Hyperfibrinolysis")
 		      End If
 		      
 		      If TEGDATA.CFF_A10 >=  15 And TEGDATA.CRT_A10 < 47 Then
@@ -116,37 +115,63 @@ End
 		      End If
 		      
 		      If TEGDATA.CFF_A10 >=15 And TEGData.CKH_R > 10 Then
-		        AddResult("Low Coagulation Factors or Oral anticoagulants")
+		        AddResult("Factors")
 		      End If
 		      
-		      If TEGDATA.CRT_LY30 > 2.2 Then AddResult("CRT_LY30 > 2.2 → Hyperfibrinolysis")
+		      If TEGDATA.CRT_LY30 > 2.2 Then AddResult("Hyperfibrinolysis")
 		      
 		      
 		    End Select
 		    
 		  Case "Cardiac"
-		    If rotemdata.INTEM_CT/ROTEMData.EXTEM_CT > 1.25 Then
-		      AddResult("Heparin Effect")
-		    End If
-		    
-		    MessageBox(" rotemdata.EXTEM_CT = " + rotemdata.EXTEM_CT.ToString)
-		    If  rotemdata.INTEM_CT > 205 And ROTEMData.HEPTEM_CT > 205 Then
-		      AddResult("Protamine ,  Factor V,  Xa ")
-		    End If
-		    
-		    If rotemdata.FIBTEM_A5 < 12 Then AddResult("FIBTEM < 12 → Low Fibrinogen")
-		    
-		    If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
-		      AddResult("Poor Platelet Contribution")
-		    End If
-		    If ROTEMData.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_CT > 85 Then
-		      AddResult("Low Coagulation Factors or Oral anticoagulants")
-		    End If
-		    
-		    If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult( "FIBTEM_ML  >= 10% → Hyperfibrinolysis")
-		    
-		    
+		    Select Case Mode
+		    Case  "ROTEM"
+		      If rotemdata.INTEM_CT/ROTEMData.EXTEM_CT > 1.25 Then
+		        AddResult("Heparin Effect")
+		      End If
+		      
+		      If  rotemdata.INTEM_CT > 205 And ROTEMData.HEPTEM_CT > 205 Then
+		        // Possible excess protamine affecting factor V (or inti nsic factor deficien cy or factor Xa inhibitor)
+		        addresult("ProlongedValues")
+		        
+		      End If
+		      
+		      If rotemdata.FIBTEM_A5 < 12 Then AddResult("Low Fibrinogen")
+		      
+		      If  rotemdata.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_A5 < 35 Then 
+		        AddResult("Poor Platelet Contribution")
+		      End If
+		      If ROTEMData.FIBTEM_A5 >= 12 And ROTEMData.EXTEM_CT > 85 Then
+		        AddResult("Factors")
+		      End If
+		      
+		      If ROTEMData.FIBTEM_ML  >= 10 Then  AddResult(  "Hyperfibrinolysis")
+		      
+		    Case "TEG"
+		      If TEGDATA.CKR/TEGDATA.CKH_R > 1.25 Then
+		        AddResult("Heparin Effect")
+		      End If
+		      
+		      If  TEGDATA.CKH_R > 10 And TEGDATA.CKR > 10 Then
+		        'Possible excess protamine affecting factor V (or intrinsic factor deficiency Or factor Xa inhibitor)
+		        addresult("ProlongedValues")
+		      End If
+		      
+		      If TEGDATA.CFF_A10 < 15 Then AddResult(" Low Fibrinogen")
+		      
+		      If  TEGDATA.CFF_A10 >=  15 And TEGDATA.CRT_A10 < 47 Then 
+		        AddResult("Poor Platelet Contribution")
+		      End If
+		      
+		      If TEGDATA.CFF_A10 >= 15 And TEGDATA.CKH_R > 10 Then
+		        AddResult("Factors")
+		      End If
+		      
+		      If TEGDATA.CRT_LY30  > 2.2Then  AddResult( "Hyperfibrinolysis")
+		      
+		    End Select
 		  End Select
+		  
 		  
 		  AddResult("Still Bleeding?")
 		  
@@ -196,24 +221,29 @@ End
 		  Case "General"
 		    
 		    Select Case value
-		    Case  "EXTEM < 35 → Hyperfibrinolysis" 
+		    Case  "Hyperfibrinolysis" 
 		      MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
-		    Case "FIBTEM < 12 → Low Fibrinogen"
-		      MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
+		      Var  Tranexamic As New TranexamicAcidScreen
+		      Tranexamic.show
+		    Case "Low Fibrinogen"
+		      MessageBox(" Give FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
 		      Var  CRYOSCREEN As New CRYOFIBCONCScreen
 		      CRYOSCREEN.SHOW
 		    Case  "Poor Platelet Contribution"
 		      MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
 		      Var Platelets As New PlateletScreen
 		      Platelets.show
-		    Case "Low Coagulation Factors or Oral anticoagulants"
-		      MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
-		    Case "FIBTEM_ML  >= 10→ Hyperfibrinolysis"
-		      MessageBox("Consider additional tranexamic acid")
+		    Case "ProlongedValues"
+		      MessageBox("Possible excess protamine affecting factor V "+ EndOfLine +_
+		      "(Or intrinsic factor deficiency Or factor Xa inhibitor)"+ EndOfLine + EndOfLine +_
+		      "Wait >10 minutes Then re-test If prolonged."+ EndOfLine +_
+		      "After re-test, consider coagulation factor deficiency. "+ EndOfLine +_
+		      "Consider mixing studies")
 		      
-		    Case "CRT_A10 < 47 → Hyperfibrinolysis" 
-		      MessageBox(" Tranexamic Acid 1 gram Or 15mg/kg")
-		    Case "CFF_A10 < 15 → Low Fibrinogen"
+		    Case "Factors"
+		      MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
+		      
+		    Case "Low Fibrinogen"
 		      MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
 		      Var  CRYOSCREEN As New CRYOFIBCONCScreen
 		      CRYOSCREEN.SHOW
@@ -221,71 +251,50 @@ End
 		      MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
 		      Var Platelets As New PlateletScreen
 		      Platelets.show
-		    Case "Low Coagulation Factors or Oral anticoagulants"
+		    Case "Factors"
+		      'Low Coagulation Factors or Oral anticoagulants"
 		      MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
 		      Var Factors As New FactorsScreen
 		      Factors.show
-		    Case "CRT_LY30 > 2.2 → Hyperfibrinolysis"
-		      MessageBox("Consider additional tranexamic acid")
+		      
 		      
 		    End Select
-		  Case "Cardiac"
+		    
+		    
+		  Case "CARDIAC"
+		    
 		    Select Case value
-		      
 		    Case "Heparin Effect"
 		      MessageBox(" Give Protamine IV 0.5-1 mg/Kg")
-		    Case "Protamine ,  Factor V,  Xa "
+		    Case "ProlongedValues"
 		      MessageBox("Excess protamine affecting factor V,  "+ EndOfLine +_
 		      "Or intrinsic factor deficiency Or factor Xa inhibitor"+ EndOfLine +_
 		      "Wait >10 minutes then re-test. If prolonged after re-test, " + EndOfLine +_
 		      "consider coagulation factor deficiency. Consider mixing studies")
-		    Case "FIBTEM < 12 → Low Fibrinogen"
-		      MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine +_
-		      "Clinician discretion for Fibrinogen Concentrate Usually single dose For severely low FIBTEM or CFF")
+		    Case "Low Fibrinogen"
+		      ''MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine +_
+		      '"Clinician discretion for Fibrinogen Concentrate Usually single dose For severely low FIBTEM or CFF")
 		      Var  CRYOSCREEN As New CRYOFIBCONCScreen
 		      CRYOSCREEN.SHOW
+		      
 		    Case  "Poor Platelet Contribution"
 		      MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
 		      Var Platelets As New PlateletScreen
 		      Platelets.show
-		    Case "Low Coagulation Factors or Oral anticoagulants"
+		    Case "Factors"
 		      MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
 		      Var Factors As New FactorsScreen
 		      Factors.show
-		    Case "FIBTEM_ML  >= 10% → Hyperfibrinolysis"
-		      MessageBox("Consider additional tranexamic acid")
-		      
-		      
-		      
-		      
-		      '
-		      'Case  "EXTEM < 35 → Hyperfibrinolysis" 
-		      'MessageBox(" Give Tranexamic Acid 1 gram Or 15mg/kg")
-		      'Case "FIBTEM < 12 → Low Fibrinogen"
-		      'MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
-		      'Case  "Poor Platelet Contribution"
-		      'MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
-		      'Var Platelets As New PlateletScreen
-		      'Platelets.show
-		      'Case "Low Coagulation Factors or Oral anticoagulants"
-		      'MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
-		      'Case "FIBTEM_ML  >= 10→ Hyperfibrinolysis"
-		      'MessageBox("Consider additional tranexamic acid")
-		      '
-		      'Case "CRT_A10 < 47 → Hyperfibrinolysis" 
-		      'MessageBox(" Tranexamic Acid 1 gram Or 15mg/kg")
-		      'Case "CFF_A10 < 15 → Low Fibrinogen"
-		      'MessageBox(" FIBRINOGEN As FIB CONCENTRATE Or CRYOPRECIPITATE" + EndOfLine + "Usually for massive obstetric haemorrhage or severely low FIBTEM or CFF")
-		      'Case "Poor Platelet Contribution"
-		      'MessageBox("1 unit Pool Platelets (Consider 2 units if EXTEM A5< 26), Desmopressin / DDAVP 0.3microg/kg IV Especially for patients with renal dysfunction")
-		      'Var Platelets As New PlateletScreen
-		      'Platelets.show
-		      'Case "Low Coagulation Factors or Oral anticoagulants"
-		      'MessageBox("ELP 4 units OR Beriplex PCC 10-15 Units/kg IV (Use lower dose for high thromboembolic risk)")
-		      
+		    Case "Hyperfibrinolysis"
+		      'MessageBox("Consider additional tranexamic acid. " + EndOfLine +_
+		      '"Adjusting subsequent dose for renal dysfunction and long bypass time" + EndOfLine +_
+		      '" Max dose 80mg/kg per case")
+		      Var  Tranexamic As New TranexamicAcidScreen
+		      Tranexamic.show
 		      
 		    End Select
 		  End Select
+		  
 		  
 		  If value = "Still Bleeding?" Then
 		    Var Bleeding As New StillBleedingScreen

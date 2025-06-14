@@ -9,15 +9,26 @@ Inherits MobileApplication
 
 
 	#tag Note, Name = Time taken
-		09/06/2025  6 hourd
-		10/06/2025   6 hours
-		 11/06/2025 7 hours    
-		12/06/2025  0600 - 08:00 --> 2 HOURS  10:30 - 
+		10/06/2025  6 hourd
+		11/06/2025   6 hours
+		 12/06/2025  7 hours    
+		13/06/2025  4 hours
+		14/06//2025 4 hours
 		
 	#tag EndNote
 
 	#tag Note, Name = TODO
-		ALPHABETICAL RDER FOR INPUT SCREENS?
+		ALPHABETICAL ORDER FOR INPUT SCREENS?
+		Need to check all entries.
+		Need to link to pdf's?? could cancatenate all pdf values
+		Need to add data capture for steps taken and store to in-memory database for forwarding to mail or print as .pdf?
+		create video?
+		
+		change results for weight Z< 50Kg??
+		
+		Paediatric inputs??
+		
+		
 		
 	#tag EndNote
 

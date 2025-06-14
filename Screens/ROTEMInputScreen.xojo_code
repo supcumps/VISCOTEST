@@ -46,7 +46,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   148
+      Top             =   198
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -83,7 +83,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   98
+      Top             =   248
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -120,7 +120,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   248
+      Top             =   350
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -157,7 +157,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   198
+      Top             =   300
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -191,7 +191,7 @@ Begin MobileScreen ROTEMInputScreen
       Alignment       =   2
       AutoLayout      =   Extem_A5Label, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   Extem_A5Label, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
-      AutoLayout      =   Extem_A5Label, 3, <Parent>, 3, False, +1.00, 4, 1, 100, , True
+      AutoLayout      =   Extem_A5Label, 3, Fibtem_A5Label, 4, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   Extem_A5Label, 7, , 0, False, +1.00, 4, 1, 100, , True
       ControlCount    =   0
       Enabled         =   True
@@ -209,7 +209,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   100
+      Top             =   250
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -220,7 +220,7 @@ Begin MobileScreen ROTEMInputScreen
       Alignment       =   2
       AutoLayout      =   Fibtem_A5Label, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   Fibtem_A5Label, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
-      AutoLayout      =   Fibtem_A5Label, 3, Extem_A5Label, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   Fibtem_A5Label, 3, HEPTEM_CTLabel, 4, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   Fibtem_A5Label, 7, , 0, False, +1.00, 4, 1, 100, , True
       ControlCount    =   0
       Enabled         =   True
@@ -238,7 +238,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   150
+      Top             =   200
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -249,7 +249,7 @@ Begin MobileScreen ROTEMInputScreen
       Alignment       =   2
       AutoLayout      =   EXTEM_CTLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   EXTEM_CTLabel, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
-      AutoLayout      =   EXTEM_CTLabel, 3, Fibtem_A5Label, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   EXTEM_CTLabel, 3, EXTEM_A5Field, 4, False, +1.00, 4, 1, 20, , True
       AutoLayout      =   EXTEM_CTLabel, 7, , 0, False, +1.00, 4, 1, 100, , True
       ControlCount    =   0
       Enabled         =   True
@@ -267,7 +267,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   200
+      Top             =   302
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -296,7 +296,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   250
+      Top             =   352
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -333,7 +333,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   300
+      Top             =   98
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -344,7 +344,7 @@ Begin MobileScreen ROTEMInputScreen
       Alignment       =   2
       AutoLayout      =   INTEM_CTLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
       AutoLayout      =   INTEM_CTLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
-      AutoLayout      =   INTEM_CTLabel, 3, FIBTEM_MLField, 4, False, +1.00, 4, 1, 20, , True
+      AutoLayout      =   INTEM_CTLabel, 3, <Parent>, 3, False, +1.00, 4, 1, 100, , True
       AutoLayout      =   INTEM_CTLabel, 7, , 0, False, +1.00, 4, 1, 100, , True
       ControlCount    =   0
       Enabled         =   True
@@ -362,7 +362,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   302
+      Top             =   100
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -399,7 +399,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   350
+      Top             =   148
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False
@@ -428,7 +428,7 @@ Begin MobileScreen ROTEMInputScreen
       TextFont        =   ""
       TextSize        =   0
       TintColor       =   &c000000
-      Top             =   352
+      Top             =   150
       Visible         =   True
       Width           =   100
       _ClosingFired   =   False

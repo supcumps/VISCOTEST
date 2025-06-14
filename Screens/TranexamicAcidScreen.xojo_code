@@ -1,7 +1,6 @@
-#tag IOSLaunchScreen
-Begin MobileScreen LaunchScreen
+#tag MobileScreen
+Begin MobileScreen TranexamicAcidScreen
    BackButtonCaption=   ""
-   BackgroundColor =   &cFFFFFF00
    Compatibility   =   ""
    ControlCount    =   0
    Device = 7
@@ -13,90 +12,32 @@ Begin MobileScreen LaunchScreen
    TabBarVisible   =   True
    TabIcon         =   0
    TintColor       =   &c000000
-   Title           =   "Untitled"
+   Title           =   "Tranexamic acid"
    Top             =   0
-   Begin MobileImageViewer ImageViewer1
+   Begin MobileImageViewer TranesamicImageImageViewer
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageViewer1, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   ImageViewer1, 8, , 0, False, +1.00, 4, 1, 160, , True
-      AutoLayout      =   ImageViewer1, 3, <Parent>, 3, False, +1.00, 4, 1, 86, , True
-      AutoLayout      =   ImageViewer1, 7, , 0, False, +1.00, 4, 1, 160, , True
+      AutoLayout      =   TranesamicImageImageViewer, 1, <Parent>, 1, False, +1.00, 4, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   TranesamicImageImageViewer, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   TranesamicImageImageViewer, 3, <Parent>, 3, False, +1.00, 4, 1, 107, , True
+      AutoLayout      =   TranesamicImageImageViewer, 8, , 0, False, +1.00, 4, 1, 333, , True
       ControlCount    =   0
       DisplayMode     =   0
       Enabled         =   True
-      Height          =   160
-      Image           =   1782425599
-      Left            =   107
-      LockedInPosition=   False
-      Scope           =   2
-      TintColor       =   &c000000
-      Top             =   86
-      URL             =   ""
-      Visible         =   True
-      Width           =   160
-      _ClosingFired   =   False
-   End
-   Begin MobileLabel InfoLabel
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      Alignment       =   1
-      AutoLayout      =   InfoLabel, 8, , 0, False, +1.00, 4, 1, 30, , True
-      AutoLayout      =   InfoLabel, 1, <Parent>, 1, False, +1.00, 4, 1, 20, , True
-      AutoLayout      =   InfoLabel, 2, <Parent>, 2, False, +1.00, 4, 1, -*kStdGapCtlToViewH, , True
-      AutoLayout      =   InfoLabel, 3, ImageViewer1, 4, False, +1.00, 4, 1, 50, , True
-      ControlCount    =   0
-      Enabled         =   True
-      Height          =   30
+      Height          =   333
+      Image           =   487192575
       Left            =   20
-      LineBreakMode   =   0
       LockedInPosition=   False
-      MaximumCharactersAllowed=   0
       Scope           =   2
-      SelectedText    =   ""
-      SelectionLength =   0
-      SelectionStart  =   0
-      Text            =   "Viscoelastic Testing for TEG and Rotem"
-      TextColor       =   &c000000
-      TextFont        =   "Custom	Verdana	Verdana-Bold"
-      TextSize        =   0
       TintColor       =   &c000000
-      Top             =   296
+      Top             =   107
+      URL             =   ""
       Visible         =   True
       Width           =   335
       _ClosingFired   =   False
    End
-   Begin MobileLabel Label1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      Alignment       =   1
-      AutoLayout      =   Label1, 9, <Parent>, 9, False, +1.00, 4, 1, 0, , True
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 4, 1, 30, , True
-      AutoLayout      =   Label1, 3, InfoLabel, 4, False, +1.00, 4, 1, 50, , True
-      AutoLayout      =   Label1, 7, , 0, False, +1.00, 4, 1, 100, , True
-      ControlCount    =   0
-      Enabled         =   True
-      Height          =   30
-      Left            =   137
-      LineBreakMode   =   0
-      LockedInPosition=   False
-      MaximumCharactersAllowed=   0
-      Scope           =   2
-      SelectedText    =   ""
-      SelectionLength =   0
-      SelectionStart  =   0
-      Text            =   "Version 3.0"
-      TextColor       =   &c000000
-      TextFont        =   "Custom	Verdana	Verdana-Bold"
-      TextSize        =   0
-      TintColor       =   &c000000
-      Top             =   376
-      Visible         =   True
-      Width           =   100
-      _ClosingFired   =   False
-   End
 End
-#tag EndIOSLaunchScreen
+#tag EndMobileScreen
 
 #tag WindowCode
 #tag EndWindowCode
